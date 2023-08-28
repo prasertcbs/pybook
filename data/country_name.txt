@@ -1,6 +1,0 @@
-Cambodia,កម្ពុជា
-Lao PDR,ສາທາລະນະລັດ ປະຊາທິປະໄຕ ປະຊາຊົນລາວ
-Malaysia,مليسيا
-Myanmar,မြန်မာ
-Thailand,ประเทศไทย
-Vietnam,Việt Nam
