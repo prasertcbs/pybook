@@ -1,0 +1,243 @@
+```{.python #lst-var-bmi lst-cap="การคำนวณหาดัชนีมวลกาย (Body Mass Index)"}
+weight = 70 # in kg.
+height = 1.7 # in meter
+bmi = weight / (height ** 2) # หาดัชนีมวลกาย
+print("bmi = ", bmi)
+```
+```{.python #lst-var-name lst-cap="การตั้งชื่อตัวแปร"}
+# ตัวแปรที่สื่อความหมาย
+age = 25
+name = "Peter"
+total_amount = 1000.50
+is_member = True
+students = ["ทอฝัน", "ปลายฟ้า", "สายน้ำ"]
+
+# ตัวแปรที่ประกอบไปด้วยตัวเลข
+sales_2565 = 10
+sales_2566 = 20
+total_sales = sales_2565 + sales_2566
+
+# การใช้ตัวอักษรและตัวเลขร่วมกัน
+student_name = "ทอรุ้ง"
+score_1 = 85
+score_2 = 90
+average_score = (score_1 + score_2) / 2
+```
+```{.python #lst-var-naming-convention lst-cap="`naming convention` ที่ใช้การตั้งชื่อเมื่อเขียนโค้ดด้วยภาษาไพทอน"}
+# ตัวแปร (snake_case)
+cost = 10
+top_3_menus = ['ต้มยำกุ้ง', 'ส้มตำ', 'ผัดไทย']
+
+# ฟังก์ชัน (snake_case)
+def calc_margin(price, cost):
+    return (price - cost) / price
+
+# คลาส (Pascal case)
+class Customer:
+    def __init__(self, first_name, last_name):
+        self.first_name = first_name
+        self.last_name = last_name
+
+class LineChart:
+    pass
+
+# ค่าคงที่ (All CAPS and _)
+MAX_VALUE = 100
+PI = 3.14159
+```
+```{.python #lst-var-type-fn lst-cap="การใช้ `type()` ตรวจสอบประเภทของตัวแปร"}
+x = 5
+y = "Hello"
+z = [1, 2, 3]
+print(f'type(x) = {type(x)}')  # ผลลัพธ์: <class 'int'>
+print(f'type(y) = {type(y)}')  # ผลลัพธ์: <class 'str'>
+print(f'type(z) = {type(z)}')  # ผลลัพธ์: <class 'list'>
+```
+```{.python #lst-var-int-fn-1 lst-cap="การใช้ `int()` แปลงเลขแบบมีทศนิยมให้เป็นจำนวนเต็ม"}
+a = 3.5
+print(f"a = {a}, type = {type(a)}")
+b = int(a)
+print(f"b = {b}, type = {type(b)}")
+```
+```{.python #lst-var-int-fn-2 lst-cap="การใช้ `int()` แปลงสตริงที่เก็บอักขระตัวเลขให้เป็นจำนวนเต็ม"}
+s = "3"
+print(f"s  = {s}, type = {type(s)}")
+a = int(s)
+print(f"a  = {a}, type = {type(a)}")
+
+s2 = "-7"
+print(f"s2 = {s2}, type = {type(s2)}")
+b = int(s2)
+print(f"b  = {b}, type = {type(b)}")
+```
+```{.python #lst-var-float-fn lst-cap="การใช้ `float()` แปลงสตริงให้เป็นเลขแบบมีทศนิยม"}
+a = float("3")
+print(f"a = {a}, type = {type(a)}")
+
+b = float("3.14159")
+print(f"b = {b}, type = {type(b)}")
+
+c = float("-17.5")
+print(f"c = {c}, type = {type(c)}")
+```
+```{.python #lst-var-str-fn lst-cap="การใช้ `str()` แปลงตัวเลขให้เป็นสตริง"}
+a = str(3)
+print(f"a = {a}, type = {type(a)}")
+print(f"a * 5 = {a * 5}")
+
+b = str(3.14159)
+print(f"b = {b}, type = {type(b)}")
+print(f"1 + b = {'7' + b}")
+
+c = str(-17)
+print(f"c = {c}, type = {type(c)}")
+print(f"1 + c = {'1' + c}")
+```
+```{.python #lst-var-dynamic-typing lst-cap="การทำงานของ dynamic typing"}
+def find_max(a, b):
+    return a if a > b else b
+
+print(find_max(3, 5))
+print(find_max(4.17, 2))
+print(find_max("coconut", "mango"))
+```
+```{.python #lst-dynamic-typing-problem-1 lst-cap="ปัญหาของการเปลี่ยนแปลงประเภทตัวแปรในระหว่างการทำงานของโปรแกรม"}
+a = 5
+b = 10
+print(a + b)
+a = '5'
+b = '10'
+print(a + b)
+```
+```{.python #lst-dynamic-typing-problem-2 lst-cap="ข้อเสียของ dynamic typing"}
+def rectangle_area(w, h):
+    return w * h
+
+print(f"rectangle_area(3, 5)   = {rectangle_area(3, 5)}")
+print(f"rectangle_area('3', 5) = {rectangle_area('3', 5)}")
+```
+```{.python #lst-var-global-scope lst-cap="การทำงานของตัวแปรแบบ global (1)"}
+VAT = .07
+
+def price_part(amount):
+    tax = amount * VAT / (1 + VAT)
+    price = amount - tax
+    return price, tax
+
+print(f"VAT = {VAT}")
+print(price_part(150))
+```
+```{.python #lst-global-keyword lst-cap="การทำงานของตัวแปรแบบ global (2)"}
+VAT = .07 # # เพิ่ม global keyword เพื่อขอใช้และแก้ไขค่าใน VAT ภายในฟังก์ชัน
+member_discount = .15 
+coffee_price = 50 
+
+def access_global_var():
+    global VAT
+    print(f"inside access_global_var():  VAT = {VAT}") 
+    print(f"inside access_global_var():  member_discount = {member_discount}") 
+
+print(f"outside access_global_var(): VAT = {VAT}") 
+print(f"outside access_global_var(): member_discount = {member_discount}") 
+access_global_var()
+print(f"coffee_price (before discount) = {coffee_price}")
+print(f"coffee_price (after membership discount) = {coffee_price * (1 - member_discount)}")
+```
+```{.python #lst-3d113 lst-cap="เมื่อไรต้องใช้คำสงวน global"}
+VAT = .07 # <1>
+member_discount = .15 # <2>
+coffee_price = 50 # <3>
+
+def access_global_var():
+    global VAT # เพิ่ม global keyword เพื่อขอใช้และแก้ไขค่าใน VAT ภายในฟังก์ชัน
+    print(f"inside access_global_var():  VAT = {VAT}") 
+    print(f"inside access_global_var():  member_discount = {member_discount}") # UnboundLocalError: local variable 'member_discount' referenced before assignment
+
+    print("update value")
+    VAT = .1 # <3>
+    member_discount = .20 # <2>
+
+print(f"outside access_global_var(): VAT = {VAT}") 
+print(f"outside access_global_var(): member_discount = {member_discount}") 
+access_global_var()
+print(f"coffee_price (before discount) = {coffee_price}")
+print(f"coffee_price (after membership discount) = {coffee_price * (1 - member_discount)}")
+```
+```{.python #lst-3d11x lst-cap="การใช้คำสงวน global"}
+VAT = .07
+member_discount = .15
+
+def access_global_var():
+    global VAT 
+    global member_discount # เพิ่ม global keyword เพื่อขอใช้และแก้ไขค่าใน member_discount ภายในฟังก์ชัน
+    print(f"inside access_global_var(): VAT = {VAT}") 
+    print(f"inside access_global_var(): member_discount = {member_discount}")
+
+    print("update value")
+    VAT = .1
+    member_discount = .20
+
+access_global_var()
+print(f"outside access_global_var() after updating value: VAT = {VAT}") 
+print(f"outside access_global_var() after updating value: member_discount = {member_discount}") 
+print(f"coffee_price (before discount) = {coffee_price}")
+print(f"coffee_price (after membership discount) = {coffee_price * (1 - member_discount)}")
+```
+```{.python #lst-global-var-scope-counter lst-cap="การประยุกต์ใช้ตัวแปร global scope"}
+counter = 0 # counter ถูกสร้างอยู่ภายนอกฟังก์ชันจึงถูกเข้าถึงได้จากทุกที่ในโปรแกรม
+male_counter = 0
+female_counter = 0
+
+def show_counter():
+    print(f"inside show_counter(): counter = {counter}")
+    print(f"inside show_counter(): male_counter = {male_counter}")
+    print(f"inside show_counter(): female_counter = {female_counter}")
+
+def add_counter(gender):
+    global counter
+    global male_counter, female_counter
+    counter = counter + 1 # เข้าถึงตัวแปร counter ใน global scope
+    if gender.lower() == 'm':
+        male_counter = male_counter + 1 # เข้าถึงตัวแปร male_counter ใน global scope
+    else:
+        female_counter = female_counter + 1 # เข้าถึงตัวแปร female_counter ใน global scope
+
+    print(f"inside add_counter(): counter = {counter}")
+    print(f"inside add_counter(): male_counter = {male_counter}")
+    print(f"inside add_counter(): female_counter = {female_counter}")
+    print('-' * 50)
+
+show_counter()
+print(f"outside functions: counter = {counter}") # ผลลัพธ์: 0
+print(f"outside functions: male_counter = {male_counter}") # ผลลัพธ์: 0
+print(f"outside functions: female_counter = {female_counter}") # ผลลัพธ์: 0
+add_counter("m")  
+print(f"outside functions: counter = {counter}") # ผลลัพธ์: 1
+add_counter("f")  
+print(f"outside functions: counter = {counter}") # ผลลัพธ์: 2
+add_counter("m")  
+print(f"outside functions: counter = {counter}") # ผลลัพธ์: 2
+print(f"outside functions: male_counter = {male_counter}") # ผลลัพธ์: 0
+print(f"outside functions: female_counter = {female_counter}") # ผลลัพธ์: 0
+```
+```{.python #lst-local-var-scope lst-cap="เข้าใจตัวแปรแบบ local"}
+def drink():
+    price = 20 
+    print(f"price in drink() = {price}") 
+
+def burger():
+    price = 69
+    print(f"price in burger() = {price}")
+
+drink()
+burger()
+```
+```{.python #lst-local-var-scope-lifetime lst-cap="ขอบเขตและอายุการใช้งานของตัวแปรแบบ local"}
+def my_function():
+    y = 20  # ตัวแปร y อยู่ใน local scope ของ my_function
+    print(y)
+
+my_function()  # ผลลัพธ์: 20
+
+print(y)  # NameError: name 'y' is not defined
+```

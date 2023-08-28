@@ -1,0 +1,18 @@
+{
+    "Hello": {
+        "meaning": "สวัสดี",
+        "pronunciation": "sawatdee"
+    },
+    "Thank you": {
+        "meaning": "ขอบคุณ",
+        "pronunciation": "khop khun"
+    },
+    "Sorry": {
+        "meaning": "ขอโทษ",
+        "pronunciation": "khor thot"
+    },
+    "Goodbye": {
+        "meaning": "ลาก่อน",
+        "pronunciation": "laa gon"
+    }
+}
